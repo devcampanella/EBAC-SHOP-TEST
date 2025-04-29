@@ -1,23 +1,23 @@
 #language: pt
+Funcionalidade: Cadastro de usuário no checkout da EBAC-SHOP
 
-Feature: Cadastro de Usuário no Checkout da EBAC-SHOP
+  Como cliente da EBAC-SHOP
+  Quero concluir meu cadastro
+  Para finalizar minha compra
 
-Como cliente da EBAC-SHOP
-Quero concluir meu Cadastro
-Para finalizar minha compra
+  Contexto:
+    Dado que o usuário está na página de cadastro no checkout
 
-Background: Dado que estou na página de cadastro no Checkout
+  Cenário: Cadastro com todos os dados obrigatórios preenchidos
+    Quando o usuário preenche todos os campos obrigatórios corretamente
+    E clica no botão "cadastrar"
+    Então o sistema deve salvar o cadastro com sucesso
 
-Cenário: Cadastro com todos os dados obrigatórios preenchidos
-Quando eu preencher todos os campos obrigatórios corretamente
-E clicar no botão "cadastrar"
-Então o sistema deve salvar meu cadastro com sucesso
+  Cenário: Campo e-mail com formato inválido
+    Quando o usuário preenche o campo "e-mail" com "joao-email.com"
+    E clica no botão "cadastrar"
+    Então o sistema deve exibir uma mensagem de erro "E-mail inválido"
 
-Cenário: Campo e-mail com formato inválido
-Quando eu preencher o campo "e-mail" com "e-mail inválido"
-E clicar no botão "cadastrar"
-Então o sistema deve exibir uma mensagemde erro "e-mail inválido"
-
-Cenário: Campos obrigatórios vazios
-Quando eu tentar cadastrar deixando campos obrigatórios vazios
-Então o sistema deve exibir uma mensagem de alerta informando "Preencha todos os campos obritatórios"
+  Cenário: Campos obrigatórios vazios
+    Quando o usuário tenta cadastrar deixando campos obrigatórios vazios
+    Então o sistema deve exibir uma mensagem de alerta informando "Preencha todos os campos obrigatórios"
