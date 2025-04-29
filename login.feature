@@ -1,21 +1,21 @@
 #language: pt
 
-Feature: login na plataforma EBAC-SHOP
+Funcionalidade: login na plataforma EBAC-SHOP
 
     Como cliente da EBAC-SHOP
     Quero fazer o login (autenticação) na plataforma
     Para visualizar meus pedidos
 
-    Background: Dado que estou na página da plataforma EBAC-SHOP
+    Contexto: Dado que o usuário está na página da plataforma EBAC-SHOP
 
-        Cenário: Login com dados válidos e inválidos
-        Quando eu preencher o campo "Usuário" com "<Usuário>" e o campo "Senha" com "<Senha>"
+        Esquema do Cenário: Login com dados válidos e inválidos
+        Quando o usuário preencher o campo "Usuário" com "<Usuário>" e o campo "Senha" com "<Senha>"
         E clicar no botão "login"
         Então o sitema deve "<resultados>"
 
         Examples:
-            | Usuário          | Senha          | resultado                                    |
-            | Usuário_valido   | Senha_válida   | redirecionar para tela de checkout           |
-            | Usuário_inválido | Senha_válida   | Exibir mensagem "Usuário ou Senha inválidos" |
-            | Usuário_valido   | Senha_inválida | Exibir mensagem "Usuário ou Senha inválidos" |
-            | Usuário_inválido | Senha_inválida | Exibir mensagem "Usuário ou Senha inválidos" |
+      | Usuário            | Senha           | Resultado                                       |
+      | maria@email.com    | senha123        | redirecionar para a tela de checkout            |
+      | maria@email.com    | senhaErrada     | mensagem "Usuário ou senha inválidos"           |
+      | errado@email.com   | senha123        | mensagem "Usuário ou senha inválidos"           |
+      | errado@email.com   | senhaErrada     | mensagem "Usuário ou senha inválidos"           |
